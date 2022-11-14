@@ -20,7 +20,7 @@ export const header = (_) => {
   }))
 
   _.hooks(() => ({
-    afterOnInit,
+    afterOnPropsChange,
     beforeOnInit
   }))
 
@@ -40,8 +40,8 @@ const beforeOnInit = ({ state, methods }) => {
   methods.setState(state, { title: 'Novo Título', counter: 0 })
 }
 
-const afterOnInit = ({ props, methods }) => {
-  methods.setProps(props, { label: 'Novo Subtitulo para o header' })
+const afterOnPropsChange = ({ props, methods }) => {
+  methods.setProps(props, { label: 'Novo Subtitulo novo para o header' })
   console.log('xxxxxxxxxxxxxxx')
 }
 

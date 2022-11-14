@@ -72,7 +72,8 @@ export const menu = (_) => {
   }))
 
   _.hooks(() => ({
-    beforeOnInit
+    beforeOnInit,
+    afterOnPropsChange
   }))
 
   _.events(() => ({
@@ -96,7 +97,11 @@ const beforeOnInit = ({ props, state, methods }) => {
   methods.setState(state, { counter: 0 })
 }
 
-const onClickTitle = ({ on, state, methods }) => {
+const afterOnPropsChange = ({ props }) => {
+  methods.setProps(props, { data: [{ title: 'teste' }] })
+}
+
+const onClickTitle = ({ on, props, state, methods }) => {
   on('click', 'li', () => methods.logger(state, { increment: 1 }))
 }
 
