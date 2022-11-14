@@ -4,11 +4,12 @@ const styles = ({ css }) => css`
   }
 `
 
-const template = ({ state, props, html }) => {
+const template = ({ state, props, html, children }) => {
   return html`
     <h1 class="ctx-title">${state.title} - ${state.counter || '0'}</h1>
     <p>${props.label}</p>
-    <app-menu></app-menu>
+    <slot></slot>
+    ${children}
   `
 }
 
@@ -19,7 +20,7 @@ export const header = (_) => {
   }))
 
   _.hooks(() => ({
-    // afterOnInit,
+    afterOnInit,
     beforeOnInit
   }))
 
@@ -30,6 +31,7 @@ export const header = (_) => {
   _.methods(() => ({
     logger,
     setState,
+    setProps,
     getState
   }))
 }
@@ -38,8 +40,9 @@ const beforeOnInit = ({ state, methods }) => {
   methods.setState(state, { title: 'Novo Título', counter: 0 })
 }
 
-const afterOnInit = ({ state, methods }) => {
-  methods.getState(state)
+const afterOnInit = ({ props, methods }) => {
+  methods.setProps(props, { label: 'Novo Subtitulo para o header' })
+  console.log('xxxxxxxxxxxxxxx')
 }
 
 const onClickTitle = ({ on, state, methods }) => {
@@ -55,6 +58,10 @@ const logger = (state, { increment }) => {
 
 const setState = (state, value) => {
   state.set({ ...value })
+}
+
+const setProps = (props, value) => {
+  props.set({ ...value })
 }
 
 const getState = (state) => {
