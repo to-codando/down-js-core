@@ -1,23 +1,26 @@
-const styles = ({ selector, css }) => css``
+const styles = ({ css }) => css`
+  .ctx-title {
+    color: red;
+  }
+`
 
 const template = ({ state, props, html }) => {
   return html`
-    <h1>${state.title} - ${state.counter || '0'}</h1>
+    <h1 class="ctx-title">${state.title} - ${state.counter || '0'}</h1>
     <p>${props.label}</p>
     <app-menu></app-menu>
   `
 }
 
 export const header = (_) => {
-
   _.view(() => ({
-    template, 
-    styles,
+    template,
+    styles
   }))
 
   _.hooks(() => ({
     // afterOnInit,
-    beforeOnInit, 
+    beforeOnInit
   }))
 
   _.events(() => ({
@@ -29,11 +32,10 @@ export const header = (_) => {
     setState,
     getState
   }))
-
 }
 
 const beforeOnInit = ({ state, methods }) => {
-  methods.setState(state, {title: 'Novo Título', counter:0})
+  methods.setState(state, { title: 'Novo Título', counter: 0 })
 }
 
 const afterOnInit = ({ state, methods }) => {
@@ -41,10 +43,10 @@ const afterOnInit = ({ state, methods }) => {
 }
 
 const onClickTitle = ({ on, state, methods }) => {
-  on('click', 'h1', ({target}) => methods.logger(state, {increment: 1}))
+  on('click', 'h1', ({ target }) => methods.logger(state, { increment: 1 }))
 }
 
-const logger = (state, {increment}) => {
+const logger = (state, { increment }) => {
   const oldState = state.get()
   const newState = { ...state.get(), counter: oldState.counter + increment }
   state.set(newState)
@@ -58,8 +60,3 @@ const setState = (state, value) => {
 const getState = (state) => {
   console.log(state.get())
 }
-
-
-
-
-
