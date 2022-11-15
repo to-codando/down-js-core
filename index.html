@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./assets/styles/reset.css" />
+    <link rel="stylesheet" href="./assets/styles/main.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,10 +15,7 @@
       rel="stylesheet"
     />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/simple-scrollbar@latest/simple-scrollbar.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-scrollbar@latest/simple-scrollbar.css" />
 
     <link
       rel="stylesheet"
@@ -146,6 +143,25 @@
       .page-article .text + .text {
         margin-top: 2rem;
       }
+
+      @media all and (max-width: 860px) {
+        .page-container {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
+          width: 100%;
+          height: 100vh;
+          padding: 2rem;
+        }
+        .page-nav {
+          display: none;
+        }
+        .page-content {
+          height: 100vh;
+          margin-left: 0;
+          width: 100%;
+        }
+      }
     </style>
   </head>
   <body>
@@ -178,115 +194,91 @@
       <div class="page-content">
         <div class="page-header">
           <h1>Dawn Design System</h1>
-          <p>
-            A simple and powerful design system for creating super complete
-            products
-          </p>
+          <p>A simple and powerful design system for creating super complete products</p>
         </div>
 
         <div class="page-article">
           <h2 class="title">Componentes de formulário</h2>
           <p class="text">
-            Mussum Ipsum, cacilds vidis litro abertis. Quem num gosta di mé, boa
-            gentis num é.Aenean aliquam molestie leo, vitae iaculis nisl.Suco de
-            cevadiss deixa as pessoas mais interessantis.Viva Forevis aptent
-            taciti sociosqu ad litora torquent.
+            Mussum Ipsum, cacilds vidis litro abertis. Quem num gosta di mé, boa gentis num é.Aenean aliquam molestie
+            leo, vitae iaculis nisl.Suco de cevadiss deixa as pessoas mais interessantis.Viva Forevis aptent taciti
+            sociosqu ad litora torquent.
           </p>
           <p class="text">
             <app-input></app-input>
           </p>
+          <div class="grid space-top-3">
+            <div class="col-xxl-8-1 col-xl-6-1 col-lg-4-1 col-sm-2-1 row-span-xl-3 row-span-lg-2 row-span-sm-1"></div>
+            <div class=""></div>
+            <div class=""></div>
+          </div>
         </div>
 
         <div class="page-article">
           <h2 class="title">Componentes de formulário</h2>
           <p class="text">
-            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
-            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
-            leite de mula manquis sem cabeça.Si num tem leite então bota uma
-            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
-            euismod magna.
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo vai
+            girarzis!Leite de capivaris, leite de mula manquis sem cabeça.Si num tem leite então bota uma pinga aí
+            cumpadi!Copo furadis é disculpa de bebadis, arcu quam euismod magna.
           </p>
           <p class="text">
-            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
-            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
-            leite de mula manquis sem cabeça.Si num tem leite então bota uma
-            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
-            euismod magna. Nec orci ornare consequat. Praesent lacinia ultrices
-            consectetur. Sed non ipsum felis.Suco de cevadiss, é um leite
-            divinis, qui tem lupuliz, matis, aguis e fermentis.Posuere libero
-            varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet
-            nisi.A ordem dos tratores não altera o pão duris. Aenean aliquam
-            molestie leo, vitae iaculis nisl.Interagi no mé, cursus quis,
-            vehicula ac nisi.Em pé sem cair, deitado sem dormir, sentado sem
-            cochilar e fazendo pose.Copo furadis é disculpa de bebadis, arcu
-            quam euismod magna.
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo vai
+            girarzis!Leite de capivaris, leite de mula manquis sem cabeça.Si num tem leite então bota uma pinga aí
+            cumpadi!Copo furadis é disculpa de bebadis, arcu quam euismod magna. Nec orci ornare consequat. Praesent
+            lacinia ultrices consectetur. Sed non ipsum felis.Suco de cevadiss, é um leite divinis, qui tem lupuliz,
+            matis, aguis e fermentis.Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet
+            nisi.A ordem dos tratores não altera o pão duris. Aenean aliquam molestie leo, vitae iaculis nisl.Interagi
+            no mé, cursus quis, vehicula ac nisi.Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo
+            pose.Copo furadis é disculpa de bebadis, arcu quam euismod magna.
           </p>
           <p class="text">
-            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
-            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
-            leite de mula manquis sem cabeça.Si num tem leite então bota uma
-            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
-            euismod magna. Aenean aliquam molestie leo, vitae iaculis
-            nisl.Interagi no mé, cursus quis, vehicula ac nisi.Em pé sem cair,
-            deitado sem dormir, sentado sem cochilar e fazendo pose.Copo furadis
-            é disculpa de bebadis, arcu quam euismod magna.
-          </p>
-        </div>
-
-        <div class="page-article">
-          <h2 class="title">Componentes de formulário</h2>
-          <p class="text">
-            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
-            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
-            leite de mula manquis sem cabeça.Si num tem leite então bota uma
-            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
-            euismod magna.
-          </p>
-          <p class="text">
-            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
-            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
-            leite de mula manquis sem cabeça.Si num tem leite então bota uma
-            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
-            euismod magna. Aenean aliquam molestie leo, vitae iaculis
-            nisl.Interagi no mé, cursus quis, vehicula ac nisi.Em pé sem cair,
-            deitado sem dormir, sentado sem cochilar e fazendo pose.Copo furadis
-            é disculpa de bebadis, arcu quam euismod magna.
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo vai
+            girarzis!Leite de capivaris, leite de mula manquis sem cabeça.Si num tem leite então bota uma pinga aí
+            cumpadi!Copo furadis é disculpa de bebadis, arcu quam euismod magna. Aenean aliquam molestie leo, vitae
+            iaculis nisl.Interagi no mé, cursus quis, vehicula ac nisi.Em pé sem cair, deitado sem dormir, sentado sem
+            cochilar e fazendo pose.Copo furadis é disculpa de bebadis, arcu quam euismod magna.
           </p>
         </div>
 
         <div class="page-article">
           <h2 class="title">Componentes de formulário</h2>
           <p class="text">
-            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
-            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
-            leite de mula manquis sem cabeça.Si num tem leite então bota uma
-            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
-            euismod magna.
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo vai
+            girarzis!Leite de capivaris, leite de mula manquis sem cabeça.Si num tem leite então bota uma pinga aí
+            cumpadi!Copo furadis é disculpa de bebadis, arcu quam euismod magna.
           </p>
           <p class="text">
-            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
-            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
-            leite de mula manquis sem cabeça.Si num tem leite então bota uma
-            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
-            euismod magna. Nec orci ornare consequat. Praesent lacinia ultrices
-            consectetur. Sed non ipsum felis.Suco de cevadiss, é um leite
-            divinis, qui tem lupuliz, matis, aguis e fermentis.Posuere libero
-            varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet
-            nisi.A ordem dos tratores não altera o pão duris. Aenean aliquam
-            molestie leo, vitae iaculis nisl.Interagi no mé, cursus quis,
-            vehicula ac nisi.Em pé sem cair, deitado sem dormir, sentado sem
-            cochilar e fazendo pose.Copo furadis é disculpa de bebadis, arcu
-            quam euismod magna.
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo vai
+            girarzis!Leite de capivaris, leite de mula manquis sem cabeça.Si num tem leite então bota uma pinga aí
+            cumpadi!Copo furadis é disculpa de bebadis, arcu quam euismod magna. Aenean aliquam molestie leo, vitae
+            iaculis nisl.Interagi no mé, cursus quis, vehicula ac nisi.Em pé sem cair, deitado sem dormir, sentado sem
+            cochilar e fazendo pose.Copo furadis é disculpa de bebadis, arcu quam euismod magna.
+          </p>
+        </div>
+
+        <div class="page-article">
+          <h2 class="title">Componentes de formulário</h2>
+          <p class="text">
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo vai
+            girarzis!Leite de capivaris, leite de mula manquis sem cabeça.Si num tem leite então bota uma pinga aí
+            cumpadi!Copo furadis é disculpa de bebadis, arcu quam euismod magna.
           </p>
           <p class="text">
-            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
-            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
-            leite de mula manquis sem cabeça.Si num tem leite então bota uma
-            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
-            euismod magna. Aenean aliquam molestie leo, vitae iaculis
-            nisl.Interagi no mé, cursus quis, vehicula ac nisi.Em pé sem cair,
-            deitado sem dormir, sentado sem cochilar e fazendo pose.Copo furadis
-            é disculpa de bebadis, arcu quam euismod magna.
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo vai
+            girarzis!Leite de capivaris, leite de mula manquis sem cabeça.Si num tem leite então bota uma pinga aí
+            cumpadi!Copo furadis é disculpa de bebadis, arcu quam euismod magna. Nec orci ornare consequat. Praesent
+            lacinia ultrices consectetur. Sed non ipsum felis.Suco de cevadiss, é um leite divinis, qui tem lupuliz,
+            matis, aguis e fermentis.Posuere libero varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet
+            nisi.A ordem dos tratores não altera o pão duris. Aenean aliquam molestie leo, vitae iaculis nisl.Interagi
+            no mé, cursus quis, vehicula ac nisi.Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo
+            pose.Copo furadis é disculpa de bebadis, arcu quam euismod magna.
+          </p>
+          <p class="text">
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? Toma um mé que o mundo vai
+            girarzis!Leite de capivaris, leite de mula manquis sem cabeça.Si num tem leite então bota uma pinga aí
+            cumpadi!Copo furadis é disculpa de bebadis, arcu quam euismod magna. Aenean aliquam molestie leo, vitae
+            iaculis nisl.Interagi no mé, cursus quis, vehicula ac nisi.Em pé sem cair, deitado sem dormir, sentado sem
+            cochilar e fazendo pose.Copo furadis é disculpa de bebadis, arcu quam euismod magna.
           </p>
         </div>
       </div>
