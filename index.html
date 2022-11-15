@@ -4,12 +4,292 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/simple-scrollbar@latest/simple-scrollbar.css"
+    />
+
     <title>Document</title>
+    <style>
+      body {
+        font-family: 'Roboto Flex', sans-serif;
+        font-size: 1em;
+      }
+
+      .page-container {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        grid-template-rows: 1fr;
+        width: 100%;
+        height: 100vh;
+        padding: 2rem;
+      }
+
+      .page-nav {
+        border: 1px #cec7df dashed;
+        border-radius: 10px;
+        max-height: 895px;
+      }
+
+      .page-nav a {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 24px;
+        color: #8a79a9;
+        font-size: 1rem;
+        font-weight: lighter;
+        font-weight: normal;
+        text-decoration: none;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+      }
+      .page-nav a:hover {
+        color: #945dfa;
+      }
+
+      .page-nav a::after {
+        content: '';
+        width: calc(100% - 2rem);
+        border-bottom: 1px #cec7df dashed;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+      }
+      .page-nav a:last-of-type::after {
+        border-bottom: none;
+      }
+
+      .page-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: calc(100% - 2rem);
+        margin-left: 2rem;
+        border: 1px #cec7df dashed;
+        border-radius: 10px;
+        max-height: 895px;
+        overflow: hidden;
+      }
+
+      .page-header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 2rem;
+        border-bottom: 1px #cec7df dashed;
+      }
+
+      .page-header > h1 {
+        font-size: 3.2rem;
+        font-weight: 900;
+        color: #564683;
+        width: 100%;
+      }
+
+      .page-header p {
+        color: #8a79a9;
+        padding: 1.2rem 0 1rem 3px;
+      }
+
+      .page-article {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 2rem;
+      }
+
+      .page-article .title {
+        font-size: 2rem;
+        font-weight: 500;
+        width: 100%;
+        padding-bottom: 2rem;
+        color: #564683;
+      }
+
+      .page-article .text {
+        font-size: 1.3rem;
+        line-height: 2rem;
+        font-weight: 300;
+        width: 100%;
+        color: #8a79a9;
+      }
+      .page-article .text + .text {
+        margin-top: 2rem;
+      }
+    </style>
   </head>
   <body>
-    <div id="app">
-      <div component="app-header"></div>
+    <div class="page-container">
+      <nav class="page-nav">
+        <a href="#/">Primeiro item</a>
+        <a href="#/">Primeiro item</a>
+        <a href="#/">Primeiro item</a>
+        <a href="#/">Primeiro item</a>
+        <a href="#/">Primeiro item</a>
+        <a href="#/">Primeiro item</a>
+        <a href="#/">Primeiro item</a>
+        <a href="#/">Primeiro item</a>
+        <a href="#/">Primeiro item</a>
+        <a href="#/">Primeiro item</a>
+        <a href="#/">Mais um item</a>
+        <a href="#/">Novamente outro item</a>
+        <a href="#/">Novo item</a>
+        <a href="#/">Mais item</a>
+        <a href="#/">Algum item</a>
+        <a href="#/">Primeiro item</a>
+        <a href="#/">Mais um item</a>
+        <a href="#/">Novamente outro item</a>
+        <a href="#/">Novo item</a>
+        <a href="#/">Mais item</a>
+        <a href="#/">Algum item</a>
+        <a href="#/">Primeiro item</a>
+        <a href="#/">Algum item</a>
+      </nav>
+      <div class="page-content">
+        <div class="page-header">
+          <h1>Dawn Design System</h1>
+          <p>
+            A simple and powerful design system for creating super complete
+            products
+          </p>
+        </div>
+
+        <div class="page-article">
+          <h2 class="title">Componentes de formulário</h2>
+          <p class="text">
+            Mussum Ipsum, cacilds vidis litro abertis. Quem num gosta di mé, boa
+            gentis num é.Aenean aliquam molestie leo, vitae iaculis nisl.Suco de
+            cevadiss deixa as pessoas mais interessantis.Viva Forevis aptent
+            taciti sociosqu ad litora torquent.
+          </p>
+          <p class="text">
+            <app-input></app-input>
+          </p>
+        </div>
+
+        <div class="page-article">
+          <h2 class="title">Componentes de formulário</h2>
+          <p class="text">
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
+            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
+            leite de mula manquis sem cabeça.Si num tem leite então bota uma
+            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
+            euismod magna.
+          </p>
+          <p class="text">
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
+            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
+            leite de mula manquis sem cabeça.Si num tem leite então bota uma
+            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
+            euismod magna. Nec orci ornare consequat. Praesent lacinia ultrices
+            consectetur. Sed non ipsum felis.Suco de cevadiss, é um leite
+            divinis, qui tem lupuliz, matis, aguis e fermentis.Posuere libero
+            varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet
+            nisi.A ordem dos tratores não altera o pão duris. Aenean aliquam
+            molestie leo, vitae iaculis nisl.Interagi no mé, cursus quis,
+            vehicula ac nisi.Em pé sem cair, deitado sem dormir, sentado sem
+            cochilar e fazendo pose.Copo furadis é disculpa de bebadis, arcu
+            quam euismod magna.
+          </p>
+          <p class="text">
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
+            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
+            leite de mula manquis sem cabeça.Si num tem leite então bota uma
+            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
+            euismod magna. Aenean aliquam molestie leo, vitae iaculis
+            nisl.Interagi no mé, cursus quis, vehicula ac nisi.Em pé sem cair,
+            deitado sem dormir, sentado sem cochilar e fazendo pose.Copo furadis
+            é disculpa de bebadis, arcu quam euismod magna.
+          </p>
+        </div>
+
+        <div class="page-article">
+          <h2 class="title">Componentes de formulário</h2>
+          <p class="text">
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
+            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
+            leite de mula manquis sem cabeça.Si num tem leite então bota uma
+            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
+            euismod magna.
+          </p>
+          <p class="text">
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
+            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
+            leite de mula manquis sem cabeça.Si num tem leite então bota uma
+            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
+            euismod magna. Aenean aliquam molestie leo, vitae iaculis
+            nisl.Interagi no mé, cursus quis, vehicula ac nisi.Em pé sem cair,
+            deitado sem dormir, sentado sem cochilar e fazendo pose.Copo furadis
+            é disculpa de bebadis, arcu quam euismod magna.
+          </p>
+        </div>
+
+        <div class="page-article">
+          <h2 class="title">Componentes de formulário</h2>
+          <p class="text">
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
+            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
+            leite de mula manquis sem cabeça.Si num tem leite então bota uma
+            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
+            euismod magna.
+          </p>
+          <p class="text">
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
+            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
+            leite de mula manquis sem cabeça.Si num tem leite então bota uma
+            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
+            euismod magna. Nec orci ornare consequat. Praesent lacinia ultrices
+            consectetur. Sed non ipsum felis.Suco de cevadiss, é um leite
+            divinis, qui tem lupuliz, matis, aguis e fermentis.Posuere libero
+            varius. Nullam a nisl ut ante blandit hendrerit. Aenean sit amet
+            nisi.A ordem dos tratores não altera o pão duris. Aenean aliquam
+            molestie leo, vitae iaculis nisl.Interagi no mé, cursus quis,
+            vehicula ac nisi.Em pé sem cair, deitado sem dormir, sentado sem
+            cochilar e fazendo pose.Copo furadis é disculpa de bebadis, arcu
+            quam euismod magna.
+          </p>
+          <p class="text">
+            Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito
+            paradis? Toma um mé que o mundo vai girarzis!Leite de capivaris,
+            leite de mula manquis sem cabeça.Si num tem leite então bota uma
+            pinga aí cumpadi!Copo furadis é disculpa de bebadis, arcu quam
+            euismod magna. Aenean aliquam molestie leo, vitae iaculis
+            nisl.Interagi no mé, cursus quis, vehicula ac nisi.Em pé sem cair,
+            deitado sem dormir, sentado sem cochilar e fazendo pose.Copo furadis
+            é disculpa de bebadis, arcu quam euismod magna.
+          </p>
+        </div>
+      </div>
     </div>
+
     <script src="./main.js" type="module"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/simple-scrollbar@latest/simple-scrollbar.min.js"></script>
+    <script>
+      const pageNave = document.querySelector('.page-nav')
+      const pageContent = document.querySelector('.page-content')
+      SimpleScrollbar.initEl(pageNave)
+      SimpleScrollbar.initEl(pageContent)
+    </script>
   </body>
 </html>
