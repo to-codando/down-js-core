@@ -10,7 +10,8 @@
     "semi": ["error", "never"],
     "quotes": ["error", "single"],
     "comma-dangle": ["error", "never"],
-    "no-implicit-globals": "off"
+    "no-implicit-globals": "off",
+    "max-len": ["error", { "code": 120 }]
   },
   "plugins": ["fetch"],
   "extends": ["eslint:recommended","plugin:fetch/recommended"]
