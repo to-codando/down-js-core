@@ -8,6 +8,7 @@ const styles = ({ css }) => css`
     align-items: flex-start;
     width: 100%;
     position: relative;
+    font-size: 1em;
   }
 
   #ctx input {
@@ -18,7 +19,7 @@ const styles = ({ css }) => css`
     height: 60px;
     padding: 0 1.6rem;
     background: #faf8ff;
-    font-size: 0.875rem;
+    font-size: 1em;
     border-radius: 12px;
     border: 1px #cdbbec solid;
     outline: none;
@@ -80,13 +81,14 @@ const styles = ({ css }) => css`
 
   #ctx span {
     display: flex;
-    font-size: 0.75em;
+    font-size: 0.875em;
     width: auto;
     position: absolute;
     top: 50%;
     left: 1.6rem;
     transform: translateY(-50%);
     transition: all 0.2s ease;
+    color: #8a79a9;
   }
 
   #ctx input:not(:placeholder-shown) + i + span,
@@ -95,7 +97,7 @@ const styles = ({ css }) => css`
     left: 0;
     background: none;
     padding: 0;
-    font-size: 0.6em;
+    font-size: 0.875em;
     font-weight: 400;
     border-radius: 8px;
   }
@@ -109,62 +111,71 @@ const template = ({ state, props, html, children }) => {
   `
 }
 
-export const inputState = observerFactory({
-  value: ''
-})
+export const input = () => {
+  const inputState = observerFactory({
+    value: ''
+  })
 
-export const inputWatcher = pubsubFactory()
+  const inputWatcher = pubsubFactory()
 
-export const input = (_) => {
-  _.view(() => ({
-    template,
-    styles
-  }))
+  const input = (_) => {
+    _.view(() => ({
+      template,
+      styles
+    }))
 
-  _.hooks(() => ({
-    beforeOnInit
-  }))
+    _.hooks(() => ({
+      beforeOnInit
+    }))
 
-  _.events(() => ({
-    onKeyUp
-  }))
+    _.events(() => ({
+      onKeyUp
+    }))
 
-  _.methods(() => ({
-    onStateChanges
-  }))
-}
+    _.methods(() => ({
+      onStateChanges
+    }))
+  }
 
-/** HOOKS */
+  /** HOOKS */
 
-const beforeOnInit = ({ state, props }) => {
-  onStateChanges(state, emitStateChanges)
-  onInputStateChanges(state, setState)
-}
+  const beforeOnInit = ({ state, props }) => {
+    onStateChanges(state, emitStateChanges)
+    onInputStateChanges(state, setState)
+  }
 
-/**LISTENERS */
+  /**LISTENERS */
 
-const onKeyUp = ({ on }) => {
-  on('keyup', 'input', ({ target: { value } }) => emitStateChanges({ value }))
-}
+  const onKeyUp = ({ on, queryOnce }) => {
+    on('keyup', 'input', ({ target: { value } }) => emitStateChanges({ value }))
 
-/**METHODS */
+    const input = queryOnce('input')
+    input.focus()
+    const valueLength = input.value.length
+    input.setSelectionRange(valueLength, valueLength)
+  }
 
-const onInputStateChanges = (state, callback) => {
-  inputState.on((newState) => callback(state, newState))
-}
+  /**METHODS */
 
-const onStateChanges = (state, callback) => {
-  state.on(callback)
-}
+  const onInputStateChanges = (state, callback) => {
+    inputState.on((newState) => callback(state, newState))
+  }
 
-const emitStateChanges = (newState) => {
-  inputState.set({ ...inputState.get(), ...newState })
-}
+  const onStateChanges = (state, callback) => {
+    state.on(callback)
+  }
 
-const setState = (state, payload) => {
-  state.set({ ...state.get(), ...payload })
-}
+  const emitStateChanges = (newState) => {
+    inputState.set({ ...inputState.get(), ...newState })
+  }
 
-const onPropsChanges = (props, callback) => {
-  props.on(callback)
+  const setState = (state, payload) => {
+    state.set({ ...state.get(), ...payload })
+  }
+
+  const onPropsChanges = (props, callback) => {
+    props.on(callback)
+  }
+
+  return [input, inputState, inputWatcher]
 }
