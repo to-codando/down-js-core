@@ -3,66 +3,63 @@ import { header } from './components/appHeader.js'
 import { menu } from './components/appMenu.js'
 
 import { input } from './components/protoypes/d-input/index.js'
-import {
-  inputNameFactory,
-  inputLastNameFactory,
-  inputEmailFactory,
-  inputPhoneFactory,
-  inputUFFactory,
-  inputCityFactory,
-  inputZipCodeFactory,
-  inputAddressFactory,
-  inputAddressNumberFactory,
-  inputAddressReference
-} from './components/index.js'
 
-// const appMenu = componentFactory()
+const ddsName = componentFactory(input)
+ddsName.register(document.querySelector('dds-input-name'))
+ddsName.props.set({ label: 'Nome:', focus: true })
+ddsName.state.set({ value: 'Rodrigo' })
+ddsName.init()
 
-const { ddsInputName, ddsInputNameState, ddsInputNameWatcher } = inputNameFactory()
-const { ddsInputLastName, ddsInputLastNameState, ddsInputLastNameWatcher } = inputLastNameFactory()
-const { ddsInputEmail, ddsInputEmailState, ddsInputEmailWatcher } = inputEmailFactory()
-const { ddsInputPhone, ddsInputPhoneState, ddsInputPhoneWatcher } = inputPhoneFactory()
-const { ddsInputUF, ddsInputUFState, ddsInputUFWatcher } = inputUFFactory()
-const { ddsInputCity, ddsInputCityState, ddsInputCityWatcher } = inputCityFactory()
-const { ddsZipCode, ddsZipCodeState, ddsZipCodeWatcher } = inputZipCodeFactory()
-const { ddsInputAddress, ddsInputAddressState, ddsInputAddressWatcher } = inputAddressFactory()
-const { ddsInputAddressNumber, ddsInputAddressNumberState, ddsInputAddressNumberWatcher } = inputAddressNumberFactory()
-const { ddsInputAddressReference, ddsInputAddressReferenceState, ddsInputAddressReferenceWatcher } =
-  inputAddressReference()
+const ddsLastName = componentFactory(input)
+ddsLastName.register(document.querySelector('dds-input-last-name'))
+ddsLastName.props.set({ label: 'Sobrenome:' })
+ddsLastName.state.set({ value: 'Rocha' })
+ddsLastName.init()
 
-// appHeader.setChildren('app-logo', menu)
+const ddsEmail = componentFactory(input)
+ddsEmail.register(document.querySelector('dds-input-email'))
+ddsEmail.props.set({ label: 'E-mail:' })
+ddsEmail.state.set({ value: 'rodrigo@email.com' })
+ddsEmail.init()
 
-const logger = (data) => console.log(data)
+const ddsPhone = componentFactory(input)
+ddsPhone.register(document.querySelector('dds-input-phone'))
+ddsPhone.props.set({ label: 'Phone:' })
+ddsPhone.state.set({ value: '(11) 96260 9993' })
+ddsPhone.init()
 
-ddsInputNameState.set({ value: 'Rodrigo' })
-ddsInputNameState.on(logger)
-ddsInputName.init()
+const ddsUf = componentFactory(input)
+ddsUf.register(document.querySelector('dds-input-uf'))
+ddsUf.props.set({ label: 'UF:' })
+ddsUf.state.set({ value: 'PR' })
+ddsUf.init()
 
-ddsInputLastNameState.set({ value: 'Rocha' })
-ddsInputLastNameState.on(logger)
-ddsInputLastName.init()
+const ddsCity = componentFactory(input)
+ddsCity.register(document.querySelector('dds-input-city'))
+ddsCity.props.set({ label: 'Cidade:' })
+ddsCity.state.set({ value: 'Curitiba' })
+ddsCity.init()
 
-ddsInputEmailState.set({ value: 'rodrigo@email.com' })
-ddsInputEmailState.on(logger)
-ddsInputEmail.init()
-
-ddsInputPhoneState.set({ value: '(11) 96260 9993' })
-ddsInputPhone.init()
-
-ddsInputUFState.set({ value: 'PR' })
-ddsInputUF.init()
-
-ddsInputCityState.set({ value: 'Quatro Barras' })
-ddsInputCity.init()
-
-ddsZipCodeState.set({ value: '83420-000' })
+const ddsZipCode = componentFactory(input)
+ddsZipCode.register(document.querySelector('dds-input-zip-code'))
+ddsZipCode.props.set({ label: 'CEP:' })
+ddsZipCode.state.set({ value: '83420-000' })
 ddsZipCode.init()
 
-ddsInputAddressState.set({ value: 'Rua Virginia F Sbrissia' })
-ddsInputAddress.init()
+const ddsAddress = componentFactory(input)
+ddsAddress.register(document.querySelector('dds-input-address'))
+ddsAddress.props.set({ label: 'Logradouro:' })
+ddsAddress.state.set({ value: 'Rua Virginia Sbrissia' })
+ddsAddress.init()
 
-ddsInputAddressNumberState.set({ value: '426 B' })
-ddsInputAddressNumber.init()
+const ddsAddressNumber = componentFactory(input)
+ddsAddressNumber.register(document.querySelector('dds-input-address-number'))
+ddsAddressNumber.props.set({ label: 'Número:' })
+ddsAddressNumber.state.set({ value: '426 B' })
+ddsAddressNumber.init()
 
-ddsInputAddressReferenceState.set({ value: 'Próximo ao supermercado Bom Sucesso' })
-ddsInputAddressReference.init()
+const ddsAddressReference = componentFactory(input)
+ddsAddressReference.register(document.querySelector('dds-input-address-reference'))
+ddsAddressReference.props.set({ label: 'Referência:' })
+ddsAddressReference.state.set({ value: 'Próximo ao mercado Bom Sucesso' })
+ddsAddressReference.init()
