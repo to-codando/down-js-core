@@ -11,7 +11,7 @@
     "quotes": ["error", "single"],
     "comma-dangle": ["error", "never"],
     "no-implicit-globals": "off",
-    "max-len": ["error", { "code": 120 }]
+    "max-len": ["error", { "code": 100 }]
   },
   "plugins": ["fetch"],
   "extends": ["eslint:recommended","plugin:fetch/recommended"]

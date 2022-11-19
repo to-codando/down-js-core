@@ -1,6 +1,3 @@
-import { observerFactory } from '../../../lib/observer.factory.js'
-import { pubsubFactory } from '../../../lib/pubsub.factory.js'
-
 import template from './template.html.js'
 import styles from './styles.css.js'
 
@@ -24,7 +21,8 @@ export const input = (_) => {
     autofocus,
     setFocus,
     setState,
-    validate
+    validate,
+    watchClearEvent
   }))
 }
 
@@ -35,6 +33,7 @@ const beforeOnInit = ({ state, queryOnce, props, methods }) => {}
 const afterOnInit = ({ queryOnce, state, props, methods }) => {
   methods.autofocus(queryOnce)
   methods.validate(queryOnce('input'), props, state)
+  methods.watchClearEvent(props, state)
 }
 
 /**LISTENERS */
@@ -47,11 +46,6 @@ const onKeyUp = ({ on, queryOnce, state, props, methods }) => {
 
   methods.setFocus(queryOnce('input'), state)
 }
-
-// const onBlur = ({ on, state, props, methods }) => {
-//   on('onkeyup', 'input', ({ target }) => methods.validate(target, props, state))
-//   console.log()
-// }
 
 /**METHODS */
 
@@ -77,14 +71,38 @@ const validate = (target, props, state) => {
   const validators = dataPrpos.validators || []
   for (let validator of validators) {
     const { isValid, error } = validator(target)
-    state.set({ ...state.get(), hasError: !isValid, error: { isValid, isInvalid: !isValid, ...error } })
+    state.set({
+      ...state.get(),
+      hasError: !isValid,
+      error: { isValid, isInvalid: !isValid, ...error }
+    })
     if (!isValid) break
   }
 }
 
+const watchClearEvent = (props, state) => {
+  const { events } = props.get()
+  if (!events || !events.hasOwnProperty('eventDrive')) return
+  const { eventDrive, eventName, action } = events
+  const handler = {
+    [action]: (payload) => {
+      clearInput(props, state, payload)
+    }
+  }
+
+  eventDrive.on(eventName, handler[action])
+}
+
+const clearInput = (props, state, payload) => {
+  const { error } = state.get()
+  error.isValid = false
+  error.isInvalid = !error.isValid
+  const input = { value: '', hasError: true, error }
+  setState(state, { ...input, error })
+}
+
 const setError = (state, error) => {
   setState(state, { error })
-  console.log(state.get())
 }
 
 const setProps = (props, payload) => {

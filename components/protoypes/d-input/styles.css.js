@@ -1,20 +1,22 @@
 export default ({ css }) => css`
-  #ctx {
+  [ctx] {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
+    height: 100%;
     position: relative;
     font-size: 1em;
     position: relative;
   }
 
-  #ctx input {
+  [ctx] input {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    height: 60px;
+    height: 100%;
+    min-height: 60px;
     padding: 0 1.6rem;
     background: #fff;
     font-size: 1em;
@@ -26,27 +28,27 @@ export default ({ css }) => css`
     font-weight: 600;
   }
 
-  #ctx input::placeholder {
+  [ctx] input::placeholder {
     font-size: 0;
   }
 
-  #ctx input:focus {
+  [ctx] input:focus {
     background: #fff;
     box-shadow: 0 5px 10px #cec7d9;
     border: 2px #6c28e1 solid;
     color: #5a5862;
   }
 
-  #ctx input:disabled {
+  [ctx] input:disabled {
     background: #fafafa;
     border-color: #ccc;
   }
 
-  #ctx input + i {
+  [ctx] input + i {
     display: none;
   }
 
-  #ctx input:disabled + .icon-disabled {
+  [ctx] input:disabled + .icon-disabled {
     display: block;
     position: absolute;
     top: 50%;
@@ -56,31 +58,31 @@ export default ({ css }) => css`
     font-size: 1.3em;
   }
 
-  #ctx .success {
+  [ctx] .success {
     border-color: #99ffe3;
     background: #f2fffc;
   }
-  #ctx .success:focus {
+  [ctx] .success:focus {
     box-shadow: 3px 3px 15px #d1e2de;
   }
 
-  #ctx .success + .icon-disabled {
+  [ctx] .success + .icon-disabled {
     display: none;
   }
 
-  #ctx .error {
+  [ctx] .error {
     border-color: #ffadce;
     background: #fff6fa;
   }
-  #ctx .error:focus {
+  [ctx] .error:focus {
     box-shadow: 3px 3px 15px #f1dfe7;
   }
 
-  #ctx .error + .icon-disabled {
+  [ctx] .error + .icon-disabled {
     display: none;
   }
 
-  #ctx span {
+  [ctx] span {
     display: flex;
     font-size: 0.875em;
     width: auto;
@@ -92,8 +94,8 @@ export default ({ css }) => css`
     color: #e9e9ed;
   }
 
-  #ctx input:not(:placeholder-shown) + i + span,
-  #ctx input:focus + i + span {
+  [ctx] input:not(:placeholder-shown) + i + span,
+  [ctx] input:focus + i + span {
     top: 0;
     left: 1.1rem;
     background: #fdfcff;
@@ -103,12 +105,12 @@ export default ({ css }) => css`
     color: #a0a0b3;
   }
 
-  #ctx input:focus:not(:placeholder-shown) + i + span,
-  #ctx input:focus + i + span {
+  [ctx] input:focus:not(:placeholder-shown) + i + span,
+  [ctx] input:focus + i + span {
     color: #6c28e1;
   }
 
-  #ctx .error-message {
+  [ctx] .error-message {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -125,12 +127,12 @@ export default ({ css }) => css`
     font-size: 0.875em;
   }
 
-  #ctx input.input-error {
+  [ctx] input.input-error {
     border-color: #ff4b4b;
   }
 
-  #ctx input.input-error:focus + i + span,
-  #ctx input.input-error + i + span {
+  [ctx] input.input-error:focus + i + span,
+  [ctx] input.input-error + i + span {
     color: #ff4b4b;
   }
 `

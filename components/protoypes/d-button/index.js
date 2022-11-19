@@ -10,7 +10,9 @@ export const button = (_) => {
     styles
   }))
 
-  _.hooks(() => ({}))
+  _.hooks(() => ({
+    beforeOnInit
+  }))
 
   _.events(() => ({
     onClick
@@ -20,6 +22,8 @@ export const button = (_) => {
 }
 
 /** HOOKS */
+
+const beforeOnInit = ({ props }) => {}
 
 /**LISTENERS */
 const onClick = ({ on, props }) => {
