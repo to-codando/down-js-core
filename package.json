@@ -1,6 +1,6 @@
 {
   "name": "dawn-js-core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dawn JS (Core) is a library for creating agnostic javascript components.",
   "main": "main.js",
   "directories": {
