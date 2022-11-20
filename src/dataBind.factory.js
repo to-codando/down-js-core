@@ -1,4 +1,4 @@
-import { observerFactory } from 'lemejs'
+import { observerFactory } from './observer.factory.js'
 
 const message =
   'the element parameter must be an html element and props must be an object containing the properties of the html element'
