@@ -17,13 +17,7 @@ export const observerFactory = (value) => {
       throw new Error('Handler is not a function and must be.')
     }
 
-    if (_handlerExists(handler)) {
-      // const positionHandler = _handlers.indexOf(handler)
-      // _handlers.splice(positionHandler, 1, handler)
-      // return _handlerExists[positionHandler]
-    }
-
-    console.log(`${handler.name}`, handler)
+    if (_handlerExists(handler)) return handler
 
     _handlers = [..._handlers, handler]
     return handler
