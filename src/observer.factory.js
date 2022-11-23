@@ -18,10 +18,12 @@ export const observerFactory = (value) => {
     }
 
     if (_handlerExists(handler)) {
-      const positionHandler = _handlers.indexOf(handler)
-      _handlers.splice(positionHandler, 1, handler)
-      return _handlerExists[positionHandler]
+      // const positionHandler = _handlers.indexOf(handler)
+      // _handlers.splice(positionHandler, 1, handler)
+      // return _handlerExists[positionHandler]
     }
+
+    console.log(`${handler.name}`, handler)
 
     _handlers = [..._handlers, handler]
     return handler
@@ -35,7 +37,10 @@ export const observerFactory = (value) => {
 
   const set = (payload) => {
     _value = Object.assign({}, _value, payload)
-    _handlers.forEach((handler) => handler(_value))
+    _handlers.forEach((handler) => {
+      console.log(`${handler.name}`, handler)
+      handler(_value)
+    })
   }
 
   const get = () => _value
