@@ -85,8 +85,11 @@ export const componentFactory = (factory) => {
   const offEvent = (handler) => {
     return _eventDrive.off(handler)
   }
-  const emitEvent = (eventName, payload) => {
-    _eventDrive.emit(eventName, payload)
+  const emitEvent = () => {
+    _eventDrive.emit()
+  }
+  const viewEvent = (eventName, payload) => {
+    _eventDrive.view()
   }
 
   const getState = () => {
@@ -105,6 +108,10 @@ export const componentFactory = (factory) => {
     return _state.off(handler)
   }
 
+  const viewState = () => {
+    return _state.view()
+  }
+
   const setProps = (payload) => {
     _props.set({ ..._props.get(), ...payload })
     _hooks.emit('onDispatchHook', { hookName: 'afterOnPropsChange' })
@@ -120,6 +127,9 @@ export const componentFactory = (factory) => {
 
   const offProps = (handler) => {
     return _props.off(handler)
+  }
+  const viewProps = () => {
+    return _props.view()
   }
 
   const register = (element) => {
@@ -161,20 +171,23 @@ export const componentFactory = (factory) => {
       set: setProps,
       get: getProps,
       on: watchProps,
-      off: offProps
+      off: offProps,
+      view: viewProps
     },
 
     state: {
       set: setState,
       get: getState,
       on: watchState,
-      off: offState
+      off: offState,
+      view: viewState
     },
 
     eventDrive: {
       emit: emitEvent,
       off: offEvent,
-      on: onEvent
+      on: onEvent,
+      view: viewEvent
     }
   }
 }

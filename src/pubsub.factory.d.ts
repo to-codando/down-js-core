@@ -1,12 +1,12 @@
 export function pubsubFactory(): {
-    on: (eventName: any, handler: any) => {
-        eventName: any;
-        handler: any;
-    };
-    off: ({ eventName, handler }: {
-        eventName: any;
-        handler: any;
-    }) => void;
-    emit: (eventName: any, payload: any) => void;
-    getEvents: () => {};
-};
+  on: (
+    eventName: string,
+    handler: (data: any) => void
+  ) => {
+    eventName: string
+    handler: (data: any) => void
+  }
+  off: ({ eventName, handler }: { eventName: string; handler: (data: any) => void }) => void
+  emit: (eventName: any, payload: any) => void
+  view: () => {}
+}

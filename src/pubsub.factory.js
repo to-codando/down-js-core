@@ -54,12 +54,12 @@ export const pubsubFactory = () => {
     })
   }
 
-  const getEvents = () => ({ ...listeners })
+  const view = () => ({ ...listeners })
 
   return {
     on,
     off,
     emit,
-    getEvents
+    view
   }
 }
