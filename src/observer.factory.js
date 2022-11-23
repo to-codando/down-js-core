@@ -17,7 +17,14 @@ export const observerFactory = (value) => {
       throw new Error('Handler is not a function and must be.')
     }
 
-    if (_handlerExists(handler)) return handler
+    if (_handlerExists(handler)) {
+      if (!handler || !handler.name) {
+        throw new Error(`Unable to register an unnamed handler.`)
+      }
+      throw new Error(
+        `${handler.name} handler has already been registered as an observer and will not be registered again.`
+      )
+    }
 
     _handlers = [..._handlers, handler]
     return handler
@@ -32,7 +39,6 @@ export const observerFactory = (value) => {
   const set = (payload) => {
     _value = Object.assign({}, _value, payload)
     _handlers.forEach((handler) => {
-      console.log(`${handler.name}`, handler)
       handler(_value)
     })
   }
