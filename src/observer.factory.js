@@ -18,12 +18,9 @@ export const observerFactory = (value) => {
     }
 
     if (_handlerExists(handler)) {
-      if (!handler || !handler.name) {
-        throw new Error(`Unable to register an unnamed handler.`)
-      }
-      throw new Error(
-        `${handler.name} handler has already been registered as an observer and will not be registered again.`
-      )
+      const positionHandler = _handlers.indexOf(handler)
+      _handlers.splice(positionHandler, 1, handler)
+      return handler
     }
 
     _handlers = [..._handlers, handler]

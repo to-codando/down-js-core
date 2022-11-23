@@ -25,12 +25,8 @@ export const pubsubFactory = () => {
     }
 
     if (_handlerExists(eventName, handler)) {
-      if (!handler || !handler.name) {
-        throw new Error(`Unable to register an unnamed handler.`)
-      }
-      throw new Error(
-        `${handler.name} handler has already been registered as an watcher and will not be registered again.`
-      )
+      listeners[eventName] = [...listeners[eventName], handler]
+      return { eventName, handler }
     }
 
     listeners[eventName].push(handler)
