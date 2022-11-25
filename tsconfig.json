@@ -1,18 +1,16 @@
 {
-  // Mude isso para corresponder ao seu projeto
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "index.js"],
   "compilerOptions": {
-    // Diz para o TypeScript ler arquivos JS.
-    // Normalmente, seriam ignorados como arquivos fonte
+    "strict": true,
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["es2017", "dom"],
     "allowJs": true,
-    // Gerar arquivos d.ts
     "declaration": true,
-    // A compilação só gerará arquivos
-    // d.ts na saída
     "emitDeclarationOnly": true,
-    // Tipos devem ir neste diretório.
-    // Remover isso colocará arquivos .d.ts
-    // ao lado dos arquivos .js
-    "outDir": "dist"
+    "outDir": "types",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames":true,
   },
 }

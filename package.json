@@ -3,10 +3,13 @@
   "version": "0.0.12",
   "description": "Dawn JS (Core) is a library for creating agnostic javascript components.",
   "main": "index.js",
+  "types": "types",
   "directories": {
     "lib": "src"
   },
   "scripts": {
+    "build": "pnpm clean && tsc --build",
+    "clean": "tsc --build --clean",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

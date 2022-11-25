@@ -1,6 +1,6 @@
 export function isFunction(value: any): boolean;
 export function isString(value: any): boolean;
-export function isObject(value: any): boolean;
+export function isObject(value: any): any;
 export function isHTMLElement(value: any): boolean;
 export function validatorFactory(errorFactory: any): {
     typeValidate: (value: any, type: any) => void;
