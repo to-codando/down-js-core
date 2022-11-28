@@ -1,13 +1,12 @@
 {
   "name": "dawn-js-core",
-  "version": "0.0.12",
+  "version": "0.1.0",
   "description": "Dawn JS (Core) is a library for creating agnostic javascript components.",
   "main": "index.js",
   "types": "types",
   "directories": {
     "lib": "src"
   },
-  "private":true,
   "scripts": {
     "build": "pnpm clean && tsc --build",
     "clean": "tsc --build --clean",
