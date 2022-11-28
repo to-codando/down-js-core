@@ -7,7 +7,6 @@ import { methodsFactory } from './methods.factory.js'
 import { eventsFactory } from './events.factory.js'
 import { childrenFactory } from './children.factory.js'
 import { pubsubFactory } from './pubsub.factory.js'
-import { domFactory } from './dom.factory.js'
 
 export const componentFactory = (factory) => {
   const _eventDrive = pubsubFactory()
@@ -88,7 +87,7 @@ export const componentFactory = (factory) => {
   const emitEvent = () => {
     _eventDrive.emit()
   }
-  const viewEvent = (eventName, payload) => {
+  const viewEvent = () => {
     _eventDrive.view()
   }
 
