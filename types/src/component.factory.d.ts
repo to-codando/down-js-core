@@ -1,6 +1,6 @@
 export function componentFactory(factory: any): {
     children: (selector: any, children: any) => any;
-    register: (element: any) => void;
+    register: (selector: string, context: HTMLElement) => void;
     init: () => void;
     props: {
         set: (payload: any) => void;

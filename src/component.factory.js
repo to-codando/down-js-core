@@ -132,7 +132,8 @@ export const componentFactory = (factory) => {
     return _props.view()
   }
 
-  const register = (element) => {
+  const register = (selector, context) => {
+    const element = context.querySelector(`[data-component="${selector}"]`)
     _state.on(render)
     _props.on(render)
     _view.register(element, dom)

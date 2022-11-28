@@ -5,6 +5,4 @@ export { observerFactory } from './src/observer.factory.js'
 export { pubsubFactory } from './src/pubsub.factory.js'
 export { storeFactory } from './src/store.factory.js'
 
-export const dawnJS = {
-  component: { create: componentFactory }
-}
+export const dawnJS = { create: componentFactory }
